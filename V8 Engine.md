@@ -44,3 +44,33 @@ This new env was Node.js. This made possible to use JS outside the frontend worl
 ### Cross Platform
 
 In CS platform defines the architecture we are working on. Windows as an OS is different as Mac as an OS. If we write code in C++, it is a non-cross-platform lang. You write code it is saved in a file (program) we convert it to a executable piece of code and then we run that file, if we create the executable on Windows we won't be able to run it on Mac. But there are tech like Java, Python and JS that are cross-platform. Write once and run it everywhere. How they achieve cross-platform achievement is different from each other.
+
+### internals of node
+
+node provides a lot of diff capabs including some libraries, it gives acces to something called v8, libuv lib, it gives access to the event loop and gives access to a lot of os level stuff.
+
+but how are they given access to ? 
+
+the node ecosystem internally has all of these capabilites but outside we write gets access to a lot of interesting funcs like setTimeout, what node does is, exposes this set of funcs to the js layer and this js layer sometimes has the whole implementation in itself and sometimes interacts with the cpp layer. a majority of the node runtime is written in cpp. 
+
+setTimeout(cb, 0)
+
+in node if you pass 0 ms as an settimeout value , it is automatically converted to 1 ms. the time in ms if undefined it is automatically converted to 1 ms. if it is not undefined it is converted to a number. if your timeout value is not in the range from 1 to the maximum value , so if you pass 0 it is converted to 1
+
+This behavior is runtime to runtime specific
+
+but why use cpp along with js in the runtime? cpp is blazingly fast , js is not apart from that a lot of capabilities is easy to interact with lot of os capabitilies through cpp as it is very fast and low level. that is why js layer needs to interact with cpp layer. 
+
+if you want to interact directly with the os using js , then the os has to expose those capabilities to the js layer.
+
+the most imp ques is how is it cpp not cross platform but node is when it is primarilly written in cpp and that is where v8 comes in.
+
+if node and browser both are runtimes how do they commmunicate with each other, 
+
+they communicate similarly how two processes communicate with each other. 
+
+- inter-process communication: we do not use it as the processes can be on diff machines, as we deploy the server and client differently
+- networking communication
+
+## internals of v8
+
