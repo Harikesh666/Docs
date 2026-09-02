@@ -74,3 +74,46 @@ they communicate similarly how two processes communicate with each other.
 
 ## internals of v8
 
+v8 is the js engine , what is a js engine ? in a nutshell js engine has all the logic written to take a js code and run that on your machine, this logic is technically written in a js engine. and v8 is one of the engines alongside with chakra, spidermonkey and javascript core. 
+
+why diff js engines ?
+they optimize on diff stuff , browsers run on a high end machines like our day to day devices, because if you see there are machines with extremely low capabilities like iot devices, in iot devices if you have to code in js you cannot get the similar behavior we get in hugh end machiens, so there the js conversion and running js needs to be as light as possible, so there are diff optimized js engines for diff devices and use cases
+
+v8 engine is developed by google and powers the chrome browser and majorly written in cpp. interestingly it is a diff component altogether and not tightly coupled with the browser or the node rutime. it is not the case that node exists that is why v8 exists. 
+
+what v8 has that makes it capable of running code in machine ?
+
+there a lot of componnts of v8 engine , and they together make possible running the code on the machine
+
+- parser
+- interpreter (ignition)
+- compiler (turbofan) earlier it was turnshaft
+
+parser
+
+parser is used by most of the prog langs. it is used to take our code and tokenizes it and creates something called as an AST(abstract syntax tree), it is very common step in prog langs
+
+it takes let x = 1;
+
+and it takes the individual tokens and it creates a tree out of it, this tree is technically the complete representation of our code
+
+but why ? to make it understandble for the remaining comps of the v8 engine and make it compatible for the later analysis and optimization
+
+interpreter (ignition)
+
+ignition converts the ast to bytecode. what is bytecode ? it is an intermediate code and not the final code or the code we write. It is more compact and portable, creation of bytecode makes it cross platform capable. 
+
+ignition was not present in the early versions of node
+
+earlier node only had a compiler called crankshaft and it used to again and again parse the code and convert it to ast, later ignition was introduced and it created bytecode and the bytecode was intermediate code it ran faster than the js code. it keeps converting the code to bytecode and starts running it
+
+why do you need turbofan when ignition already does the job ?
+that's where node and v8 comes in , v8 collects some info at runtime, like there migfht be some func that is being called frequently, ignition creates a short bytecode (unoptimized version) and once it is being runned v8 collects runtime info the v8 optimizes the code
+
+how ? using turbofan which is an optimization compiler, it is designed to make effective highly optimized machine code, if some line executing frequently it can cache that, you pass an object to a function, how exactly it is passed and the value is going to take , it is going to take a type corresponding type to that, rpeatdly passing same type of object will create a cached version of it to avoid recomputing
+
+but the optimization is based on past runs of the code, whatever amount of code ignition has executed based on that metric tries to create a machine code that the engine can directly use instead of the bytecode, the machien code is created based on past executions. 
+
+function f({name: ""}) {}
+
+for this function it will try to create an internal representation on the type of the obj, it will create a single type representation but maybe after some run we pass diff type of an obj, the turbofan will fall back to the previous unoptimized version of the code (bytecode)
