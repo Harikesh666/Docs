@@ -2,9 +2,9 @@
 
 Nowadays, there are various types of ecosystems available, whether for Python, Java, or Node.js.
 
-If we specifically talk about Node.js, there are many large platforms and software systems using Node.js, such as JioCinema, Uber, etc. And we are going to hear about Node.js many times if we are mainly going to be involved in JS-based backend systems/ecosystems or backend development in general.
+If we specifically talk about Node.js, there are many large platforms and software systems using Node.js, such as JioCinema, Uber, etc. And we are going to hear about Node.js many times if we are mainly going to be involved in JavaScript-based backend systems/ecosystems or backend development in general.
 
-Understanding Node.js is relevant to understanding most modern JS stuff. For example, if we take a modern library like React, we need Node.js on our system for React to work in development.
+Understanding Node.js is relevant to understanding most modern JavaScript stuff. For example, if we take a modern library like React, we need Node.js on our system for React to work in development.
 
 - What is Node.js
 - What it is not
@@ -17,7 +17,7 @@ Understanding Node.js is relevant to understanding most modern JS stuff. For exa
 
 Nowadays it is pretty common knowledge that it is a runtime environment.
 
-If you visit the Node.js website, you will find a simple definition: "Free, OSS, Cross Platform JS Runtime"
+If you visit the Node.js website, you will find a simple definition: “Node.js is a free, open-source, cross-platform JavaScript runtime environment that lets developers create servers, web apps, command-line tools, and scripts.”
 
 But let's take a deeper dive and understand the runtime environment part.
 
@@ -25,25 +25,29 @@ But let's take a deeper dive and understand the runtime environment part.
 
 You might have seen newborn babies. What happens with newborn babies is that their parents give them the most suitable environment and provide them with good-quality food, shelter, etc. The parents ensure that they give the baby a habitable environment so that the baby can grow and start living. That is what a habitable environment is in human terms.
 
-Now let's understand the habitable environment with respect to technology. For you to do something specific in a particular technology, maybe the technology is not sufficient enough, and you want to add more capabilities to the said technology. That is what a runtime environment is. A runtime environment is software; it's nothing crazy. It can provide extra ecosystem stuff that the technology inherently lacks and enhance the capability of the corresponding technology. We are talking about JS as the technology here.
+Now let's understand the habitable environment with respect to technology. For you to do something specific in a particular technology, maybe the technology is not sufficient enough, and you want to add more capabilities to the said technology. That is what a runtime environment is. A runtime environment is software. It's nothing crazy. It can provide extra ecosystem stuff that the technology inherently lacks and enhance the capability of the corresponding technology. We are talking about JavaScript as the technology here.
 
-JS is a programming language. It has a lot of limitations. JS, as a programming language, is modern and high-level and has some crazy features, but as a programming language, it is not powerful enough to make end-to-end applications, scripts, or anything that modern JS is able to do. Inherently, it does not have all of those capabilities. JS is a simple and plain programming language altogether. What a runtime environment does is provide extra capabilities to JS.
+JavaScript is a programming language. It is modern, high-level, and has some crazy features, but the language specification itself does not define everything required to build an end-to-end application. For example, it does not define APIs for accessing files, creating servers, manipulating the DOM, or using timers. These capabilities are provided by the runtime environment in which JavaScript is running.
 
-What extra capabilities? You might have seen functions like `setTimeout` and `setInterval`; their use cases are to access timers. JS in itself doesn't know how to access timers. They are not an inherent part of JS; there is no such logic implemented in JS itself. You can check the ECMAScript spec. So how do they work? These are some extra capabilities provided by the runtime environment. And these capabilities can vary according to the runtimes. A runtime knows a lot of interesting things, like accessing timers. One of the simplest runtime environments is your browser. A browser can act as a runtime environment for JS. It provides capabilities like reading and modifying HTML, accessing timers, and using DOM-related functions. JS is about loops, functions, etc.
+What extra capabilities? You might have seen functions like `setTimeout` and `setInterval`, their use cases are to to provide runtime-provided timer functionality to schedule callbacks. JavaScript in itself doesn't know how to access timers. They are not an inherent part of JavaScript. There is no such logic implemented in JavaScript itself. You can check the ECMAScript spec. So how do they work? These are some extra capabilities provided by the runtime environment. And these capabilities can vary according to the runtimes. A runtime knows a lot of interesting things, like accessing timers. One of the simplest runtime environments is your browser. A browser can act as a runtime environment for JavaScript. It provides capabilities like reading and modifying HTML, accessing timers, and using DOM-related functions. JavaScript is about loops, functions, etc.
 
 Browsers provide networking capabilities as well.
 
-In a nutshell, we have a runtime environment, which is software, and inside it, we have our plain JS running. This runtime provides extra capabilities to JS. For a major period, the browser was the only runtime environment for JS.
+In a nutshell, we have a runtime environment, which is software, and inside it, we have our plain JavaScript running. This runtime provides extra capabilities to JavaScript. For a major period, the browser was the main and most commonly used runtime environment for JavaScript, although some non-browser JavaScript implementations also existed.
 
-In 2009, Ryan Dahl thought, “What if we take JS out of the browser, make a new runtime environment in which we run JS outside of the browser, and give it capabilities of the OS?” He released a runtime in which JS was running, and the capabilities were different from those of the browser runtime. It provided capabilities like reading/writing files on disk, accessing processes running on RAM, using timers, and making network calls with the help of OS APIs.
+In 2009, Ryan Dahl created Node.js with the idea of running JavaScript outside the browser and giving it access to server-side and OS-related capabilities. Node.js used V8 to execute JavaScript and provided capabilities like reading and writing files on disk, getting information about the current process, creating child processes, using timers, and making network calls with the help of OS APIs.
 
 The networking capabilities were enhanced. In browsers, the networking capability was such that you could make a request to the outside world. Dahl's version was not only able to make external requests, but it also made it possible for other machines to communicate with your machine.
 
-This new environment was Node.js. This made it possible to use JS outside the frontend world and start building technology using JS outside the browser. It also made it possible to access machine resources, due to which server-side development work is being done in JS because of Node.js.
+This new environment was Node.js. This made it possible to use JavaScript outside the frontend world and start building technology using JavaScript outside the browser. It also made it possible to access machine resources, due to which server-side development work is being done in JavaScript because of Node.js.
 
 ### Cross Platform
 
-In computer science, a platform defines the architecture we are working on. Windows as an OS is different from Mac as an OS. If we write code in C++, it is a non-cross-platform language. You write code, and it is saved in a file (a program). We convert it into an executable piece of code, and then we run that file. If we create the executable on Windows, we won't be able to run it on Mac. But there are technologies like Java, Python, and JS that are cross-platform. Write once and run it everywhere. How they achieve cross-platform compatibility differs from one another.
+In computer science, a platform includes things like the operating system, CPU architecture, system libraries, and other details of the environment in which a program runs. Windows is a different platform from macOS.
+
+C++ source code can be cross-platform, but a compiled C++ executable is generally platform-specific. If we compile a C++ program for Windows, that same executable normally cannot run directly on macOS. We have to compile the source again for the target platform.
+
+Technologies like Java, Python, JavaScript, and Node.js make it easier to run the same source code on different platforms. However, the corresponding JVM, interpreter, runtime, or executable still has to be built for each platform. How these technologies achieve cross-platform compatibility differs from one another.
 
 ### Internals of Node
 
@@ -51,7 +55,7 @@ Node provides a lot of different capabilities, including some libraries. It give
 
 But how is access to these capabilities provided?
 
-The Node ecosystem internally has all of these capabilities, but the code we write gets access to many interesting functions like setTimeout. What Node does is expose this set of functions to the JS layer. This JS layer sometimes has the whole implementation in itself and sometimes interacts with the C++ layer. A majority of the Node runtime is written in C++.
+The Node ecosystem internally has all of these capabilities, but the code we write gets access to many interesting functions like setTimeout. What Node does is expose this set of functions to the JavaScript layer. This JavaScript layer sometimes has the whole implementation in itself and sometimes interacts with the C++ layer. The Node.js core contains both JavaScript and native code. Some functionality is implemented in JavaScript, while other functionality is implemented using C++ bindings and native libraries.
 
 ```js
 setTimeout(callback, 0)
@@ -61,11 +65,13 @@ In Node, if you pass 0 ms as a setTimeout value, it is automatically converted t
 
 This behavior is runtime-specific.
 
-But why use C++ along with JS in the runtime? C++ is blazingly fast, whereas JS is not. Apart from that, it is easy to interact with many OS capabilities through C++, as it is very fast and low-level. That is why the JS layer needs to interact with the C++ layer.
+But why use C++ along with JavaScript in the runtime? C++ offers higher and predictable performance than JavaScript especially for CPU intensive tasks and low-level operations, whereas JavaScript is not. Apart from that, it is easy to interact with many OS capabilities through C++, as it is very fast and low-level. That is why the JavaScript layer needs to interact with the C++ layer.
 
-If you want to interact directly with the OS using JS, then the OS has to expose those capabilities to the JS layer.
+If you want to interact directly with the OS using JavaScript, then the OS has to expose those capabilities to the JavaScript layer.
 
-The most important question is: How is C++ not cross-platform while Node is, when it is primarily written in C++? That is where V8 comes in.
+The most important question is: How is Node.js cross-platform when it contains native C and C++ code, and compiled native binaries are platform-specific?
+
+No single component makes Node.js cross-platform. V8 supports multiple CPU architectures, libuv handles many differences between operating systems, and Node.js contains platform-specific code where it is required. A separate Node.js binary is built for each supported platform.
 
 If Node and a browser are both runtimes, how do they communicate with each other?
 
@@ -76,11 +82,13 @@ They communicate similarly to how two processes communicate with each other.
 
 ## Internals of V8
 
-V8 is the JS engine. What is a JS engine? In a nutshell, a JS engine has all the logic written to take JS code and run it on your machine. This logic is technically written in a JS engine. V8 is one of the engines alongside Chakra (legacy), SpiderMonkey, and JavaScriptCore.
+V8 is the JavaScript engine. What is a JavaScript engine? In a nutshell, a JavaScript engine has all the logic written to take JavaScript code and run it on your machine. This logic is technically written in a JavaScript engine. V8 is one of the engines alongside Chakra (legacy), SpiderMonkey, and JavaScriptCore.
 
-### Why are there different JS engines?
+### Why are there different JavaScript engines?
 
-They optimize for different things. Browsers run on high-end machines like our day-to-day devices. However, there are also machines with extremely low capabilities, such as IoT devices. If you have to code in JS for IoT devices, you cannot get similar behavior to what we get on high-end machines. Therefore, JS conversion and execution need to be as lightweight as possible. This is why there are different optimized JS engines for different devices and use cases.
+Different JavaScript engines are developed by different browser and runtime projects, and they optimize for different things. These things can include startup time, peak performance, memory usage, security, supported CPU architectures, and integration with the browser or runtime.
+
+The target device also matters. A browser running on a high-end machine has different requirements from a JavaScript engine running on a low-powered IoT device. Some engines are therefore designed to be smaller and lighter, while engines such as V8 are designed for more complex and performance-intensive use cases.
 
 The V8 engine is developed by Google, powers the Chrome browser, and is primarily written in C++. Interestingly, it is a different component altogether and is not tightly coupled with the browser or the Node runtime. V8 does not exist because Node exists.
 
@@ -90,51 +98,74 @@ There are a lot of components in the V8 engine, and together, they make it possi
 
 - parser
 - interpreter (Ignition)
-- compiler (TurboFan); earlier, it was Crankshaft (Sparkplug is a baseline compiler, Maglev is a mid-tier optimizing compiler, and TurboFan targets peak optimization.)
+- compiler (TurboFan). Earlier, it was Crankshaft (Sparkplug is a baseline compiler, Maglev is a mid-tier optimizing compiler, and TurboFan targets peak optimization.)
 
 ### Parser
 
-A parser is used by most programming languages. It is used to take our code, tokenize it, and create something called an AST (abstract syntax tree). It is a very common step in programming languages.
+Parsing is a very common step in programming languages. In V8, the process starts with a scanner. The scanner reads the source code and converts it into tokens. The parser then takes those tokens and creates something called an AST, or abstract syntax tree.
 
 It takes `let x = 1;`.
 
-It takes the individual tokens and creates a tree out of them. This tree is technically the complete representation of our code.
+It takes the individual tokens and creates a tree out of them. This tree is a structured representation of the meaning and syntax of our code, but it is not an exact copy of the original source text.
 
 But why? It makes the code understandable to the remaining components of the V8 engine and makes it compatible with later analysis and optimization.
 
 ### Interpreter (Ignition)
 
-Ignition converts the AST to bytecode. What is bytecode? It is intermediate code, not the final code or the code we write. It is more compact and portable; the creation of bytecode makes it cross-platform capable.
+Ignition contains V8's bytecode compiler and interpreter. The bytecode compiler converts the AST into bytecode, and the Ignition interpreter executes that bytecode.
+
+What is bytecode? It is an intermediate representation. It is not the JavaScript source code, and it is not final native machine code. It is compact and architecture-independent inside V8. However, bytecode alone does not make V8 cross-platform. V8 still needs platform-specific code to execute the bytecode and generate machine code for different CPU architectures.
 
 Ignition was not present in the early versions of Node.
 
-Earlier, Node only had a compiler called Crankshaft, and it used to parse the code again and again and convert it to an AST. Later, Ignition was introduced, and it created bytecode. The bytecode was intermediate code, and it ran faster than the JS code. It keeps converting the code to bytecode and starts running it.
+Earlier versions of V8 did not have Ignition. Before the Ignition and TurboFan pipeline, V8 used Full-codegen as its baseline compiler and Crankshaft as its optimizing compiler.
+
+Full-codegen quickly converted JavaScript into machine code. If a function became hot, Crankshaft could compile a more optimized version of that function. Crankshaft sometimes needed to compile the function again from the source code.
+
+Ignition later introduced a bytecode-based execution model. The bytecode could be executed by the Ignition interpreter and could also be used as input by the optimizing compiler.
 
 ### Why do you need TurboFan when Ignition already does the job?
 
-That's where Node and V8 come in. V8 collects some information at runtime. For example, there might be some function that is being called frequently. Ignition creates a short bytecode sequence (an unoptimized version), and once it is run, V8 collects runtime information and optimizes the code.
+That's where V8's tiered execution pipeline comes in. V8 collects some information at runtime. For example, there might be some function that is being called frequently. Ignition creates a short bytecode sequence (an unoptimized version), and once it is run, V8 collects runtime information and optimizes the code.
 
-How? By using TurboFan, which is an optimization compiler. It is designed to make effective, highly optimized machine code. If some line is executing frequently, it can cache that (the feedback about the object shapes/maps and value types). You pass an object to a function. The way it is passed and the value it takes correspond to a particular type. Repeatedly passing the same type of object will create a cached version of it to avoid recomputing.
+How? V8 collects feedback at places such as function calls, property accesses, and arithmetic operations. This feedback can contain information about the types of values and the shapes of objects that V8 has seen. V8 calls these object shapes maps.
 
-But the optimization is based on past runs of the code. Based on the amount of code Ignition has executed, V8 uses that metric to try to create machine code that the engine can directly use instead of bytecode. The machine code is created based on past executions.
+If we repeatedly pass similarly shaped objects to a function, V8 can use that feedback when optimizing the function. An optimizing compiler can then generate machine code specialized for the patterns that were observed during earlier executions.
+
+It is not simply caching an entire line of code or creating a copied version of the object. It is recording feedback and generating specialized machine code from that feedback.
+
+The optimization is based on information collected during previous executions of the function. V8 can consider things like how frequently the function runs and what types or object shapes it has observed.
+
+Depending on the code and the available feedback, V8 may move the function through different execution tiers. Sparkplug can quickly generate baseline machine code, Maglev can apply mid-tier optimizations, and TurboFan can produce more heavily optimized machine code for hot code.
 
 ```js
 function f({name= ""}) {}
 ```
 
-For this function, it will try to create an internal representation of the type of the object. It will create a single type representation, but maybe after some runs, we pass a different type of object. TurboFan will fall back to the previous unoptimized version of the code (bytecode), or it may resume in another tier.
+For this function, V8 can collect information about the shapes of the objects being passed to it. If it repeatedly sees the same object shape, an optimizing compiler may generate machine code specialized for that shape.
 
-Why is it hard to write C++? Because you're the one who decides the variable type, but in JS, the language decides it, and it comes with a performance cost.
+However, a call site does not always have only one shape or type representation. It can also observe several different shapes.
 
-All of this is happening at runtime, which is why we call it JIT.
+If a new object breaks an assumption used by the optimized machine code, V8 may deoptimize the function. It can then resume execution in a less optimized tier, collect more feedback, and possibly optimize the function again later.
 
-### There are two types of compilation
+Why can JavaScript be harder to optimize than C++?
 
-- just in time (JIT)
-- ahead of time (AOT)
+In C++, variables commonly have types that are known during compilation. In JavaScript, variables do not normally have fixed declared types. Instead, the values stored inside them have types that are determined at runtime.
 
-What we do in C++ is AOT: we compile before running the code.
-JIT is done at runtime; compilation and execution happen together.
+Because of this, V8 has to observe those values, perform runtime checks, and sometimes make assumptions about the types it is likely to see in the future. These checks and possible deoptimizations can introduce a performance cost.
+
+V8 performs some compilation while the program is running. This is called just-in-time compilation, or JIT.
+
+### Two Common Compilation Strategies
+
+- Just-in-time compilation (JIT)
+- Ahead-of-time compilation (AOT)
+
+In a normal C++ workflow, we compile the program into machine code before running it. This is AOT compilation.
+
+With JIT compilation, machine code is generated while the program is running. This allows the compiler to use information collected from the actual execution of the program.
+
+Parsing, interpreting bytecode, and garbage collection also happen at runtime, but those activities are not all called JIT. JIT specifically refers to compilation performed during execution.
 
 So TurboFan optimizes the hot part of the code.
 
@@ -142,22 +173,20 @@ Apart from the capabilities of the compiler, parser, etc., it has more things, s
 
 ### Interestingly, it also does garbage collection
 
-It uses Orinoco for it.
+Orinoco is the codename for V8's garbage-collection project. It is not one single garbage collector. It includes several garbage-collection techniques designed to manage memory while reducing the amount of time for which JavaScript execution has to pause.
 
-Orinoco is a GC; it performs young-generation and old-generation segregation.
+At a high level, V8 uses a generational heap. It contains a young generation and an old generation, along with some additional specialized memory spaces.
 
-If there is an object, it goes through a couple of GC cycles. It will garbage-collect unnecessary objects. If an object is still in use, it will keep it in the old generation because it is still in use and will be used again soon. The newly created variables are in the young generation, and they are more likely to be garbage-collected sooner (because there is a good chance that an object may be temporary).
+Newly created heap objects normally begin in the young generation. Many objects become unreachable shortly after they are created, so the young generation is collected frequently.
 
-So Orinoco segregates memory into two parts: the young generation and the old generation.
+If an object remains reachable through multiple garbage-collection cycles, it may be promoted to the old generation. This happens because the object survived previous collections, not because V8 knows that it will definitely be used again soon.
 
-The old memory objects stay for a longer period of time.
+V8 uses different strategies for collecting the young generation and the complete heap. These strategies include marking, scavenging, sweeping, evacuation, and compaction.
 
-Most of this happens in parallel with the running code.
+Some garbage-collection work can happen concurrently with JavaScript execution or in parallel on worker threads. However, some phases still have to pause JavaScript execution.
 
-It also does memory compaction. If a lot of fragments are created because something was present in that memory block but has now vanished/been GC'd, it tries to perform memory compaction to free up space.
+Sweeping reclaims memory occupied by unreachable objects. Compaction moves surviving objects closer together so that fragmented regions can be reclaimed and larger continuous areas of memory become available.
 
-It also sweeps in chunks.
+### In TS, when we write code, the code is typed, but it is still converted to JavaScript and then executed
 
-### In TS, when we write code, the code is typed, but it is still converted to JS and then executed
-
-This whole process of parsing, interpreting, and compilation is JIT.
+V8 parses and executes the JavaScript produced from the TS code. Parsing, interpreting, compilation, optimization, deoptimization, and garbage collection are all parts of the complete execution process. However, only the compilation performed while the program is running is specifically called JIT.
